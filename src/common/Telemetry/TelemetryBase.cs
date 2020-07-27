@@ -7,7 +7,7 @@ using System.Diagnostics.Tracing;
 namespace Microsoft.PowerToys.Telemetry
 {
     /// <summary>
-    /// Privacy Tag values
+    /// Privacy Tag values.
     /// </summary>
     public enum PartA_PrivTags
            : ulong
