@@ -146,7 +146,6 @@ bool VideoConferenceModule::getVirtualCameraMuteState()
 
 LRESULT CALLBACK VideoConferenceModule::LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
-
     if (nCode == HC_ACTION)
     {
         switch (wParam)
@@ -195,6 +194,17 @@ VideoConferenceModule::VideoConferenceModule()
 
 inline VideoConferenceModule::~VideoConferenceModule()
 {
+    if (overlay.getCameraMute())
+    {
+        reverseVirtualCameraMuteState();
+        overlay.setCameraMute(getVirtualCameraMuteState());
+    }
+
+    if (overlay.getMicrophoneMute())
+    {
+        reverseMicrophoneMute();
+    }
+
     overlay.hideOverlay();
 }
 
@@ -335,6 +345,17 @@ void VideoConferenceModule::disable()
             {
                 hook_handle = nullptr;
             }
+        }
+
+        if (overlay.getCameraMute())
+        {
+            reverseVirtualCameraMuteState();
+            overlay.setCameraMute(getVirtualCameraMuteState());
+        }
+
+        if (overlay.getMicrophoneMute())
+        {
+            reverseMicrophoneMute();
         }
 
         overlay.hideOverlay();
