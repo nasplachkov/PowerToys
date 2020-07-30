@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Overlay.h"
 
+#include <windowsx.h>
+
+#include "VideoConferenceModule.h"
+
 Gdiplus::Image* Overlay::camOnMicOnBitmap = nullptr;
 Gdiplus::Image* Overlay::camOffMicOnBitmap = nullptr;
 Gdiplus::Image* Overlay::camOnMicOffBitmap = nullptr;
@@ -34,6 +38,23 @@ LRESULT Overlay::WindowProcessMessages(HWND hwnd, UINT msg, WPARAM wparam, LPARA
     {
     case WM_DESTROY:
         return 0;
+    case WM_LBUTTONDOWN:
+    {
+        int x = GET_X_LPARAM(lparam);
+        int y = GET_Y_LPARAM(lparam);
+
+        if (x < 180)
+        {
+            VideoConferenceModule::reverseMicrophoneMute();
+        }
+        else
+        {
+            VideoConferenceModule::reverseVirtualCameraMuteState();
+            setCameraMute(VideoConferenceModule::getVirtualCameraMuteState());
+        }
+
+        return DefWindowProc(hwnd, msg, wparam, lparam);
+    }
     case WM_CREATE:
     case WM_PAINT:
     {

@@ -40,6 +40,11 @@ public:
     void sendSourceCameraNameUpdate();
     void sendOverlayImageUpdate();
 
+    static void reverseMicrophoneMute();
+    static bool getMicrophoneMuteState();
+    static void reverseVirtualCameraMuteState();
+    static bool getVirtualCameraMuteState();
+
 private:
     void init_settings();
 
@@ -47,10 +52,6 @@ private:
     static LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam);
     static bool isKeyPressed(unsigned int keyCode);
     static bool isHotkeyPressed(DWORD code, PowerToysSettings::HotkeyObject& hotkey);
-    static void reverseMicrophoneMute();
-    static bool getMicrophoneMuteState();
-    static void reverseVirtualCameraMuteState();
-    static bool getVirtualCameraMuteState();
 
     static HHOOK hook_handle;
     bool _enabled = false;
