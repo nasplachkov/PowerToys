@@ -13,6 +13,7 @@ Gdiplus::Image* Overlay::camOffMicOffBitmap = nullptr;
 bool Overlay::valueUpdated = false;
 bool Overlay::cameraMuted = false;
 bool Overlay::microphoneMuted = false;
+bool Overlay::hideOverlayWhenUnmuted = true;
 
 std::vector<HWND> Overlay::hwnds;
 
@@ -26,10 +27,10 @@ const int BORDER_OFFSET = 16;
 
 Overlay::Overlay()
 {
-    camOnMicOnBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOnMicOn.png"); // GetHBITMAPFromImageFile(L"modules/VideoConference/CamOnMicOn.png");
-    camOffMicOnBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOffMicOn.png"); // GetHBITMAPFromImageFile(L"modules/VideoConference/CamOffMicOn.png");
-    camOnMicOffBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOnMicOff.png"); // GetHBITMAPFromImageFile(L"modules/VideoConference/CamOnMicOff.png");
-    camOffMicOffBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOffMicOff.png"); //GetHBITMAPFromImageFile(L"modules/VideoConference/CamOffMicOff.png");
+    camOnMicOnBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOnMicOn.png");
+    camOffMicOnBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOffMicOn.png");
+    camOnMicOffBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOnMicOff.png");
+    camOffMicOffBitmap = Gdiplus::Image::FromFile(L"modules/VideoConference/CamOffMicOff.png");
 }
 
 LRESULT Overlay::WindowProcessMessages(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
@@ -96,7 +97,7 @@ LRESULT Overlay::WindowProcessMessages(HWND hwnd, UINT msg, WPARAM wparam, LPARA
         InvalidateRect(hwnd, NULL, NULL);
         using namespace std::chrono;
         
-        if (cameraMuted || microphoneMuted)
+        if (cameraMuted || microphoneMuted || !hideOverlayWhenUnmuted)
         {
             ShowWindow(hwnd, SW_SHOW);
         }
@@ -256,4 +257,9 @@ void Overlay::setMicrophoneMute(bool mute)
     }
 
     microphoneMuted = mute;
+}
+
+void Overlay::setHideOverlayWhenUnmuted(bool hide)
+{
+    hideOverlayWhenUnmuted = hide;
 }

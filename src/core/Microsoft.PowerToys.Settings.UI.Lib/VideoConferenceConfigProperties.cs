@@ -42,6 +42,8 @@ namespace Microsoft.PowerToys.Settings.UI.Lib
                 Key = "O",
                 Code = 79,
             });
+
+            this.HideOverlayWhenUnmuted = new BoolProperty(true);
         }
 
         [JsonPropertyName("mute_camera_and_microphone_hotkey")]
@@ -64,6 +66,9 @@ namespace Microsoft.PowerToys.Settings.UI.Lib
 
         [JsonPropertyName("camera_overlay_image_path")]
         public StringProperty CameraOverlayImagePath { get; set; } = string.Empty;
+
+        [JsonPropertyName("hide_overlay_when_unmuted")]
+        public BoolProperty HideOverlayWhenUnmuted { get; set; }
 
         // converts the current to a json string.
         public string ToJsonString()

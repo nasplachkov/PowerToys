@@ -474,8 +474,7 @@
   </data>
   <data name="VideoConference_Description.Text" xml:space="preserve">
     <value>Tool that allows muting/unmuting microphone and camera
-Disabling module or closing PowerToys will unmute microphone and camera    
-    </value>
+Disabling module or closing PowerToys will unmute microphone and camera</value>
   </data>
   <data name="VideoConference_CameraAndMicrophoneMuteHotkeyControl_Header.Header" xml:space="preserve">
     <value>Edit camera and microphone mute hotkey</value>
@@ -524,6 +523,9 @@ Disabling module or closing PowerToys will unmute microphone and camera
   </data>
   <data name="VideoConference_OverlayMonitor_All.Content" xml:space="preserve">
     <value>All monitors</value>
+  </data>
+  <data name="VideoConference_HideOverlayWhenUnmuted.Content" xml:space="preserve">
+    <value>Hide overlay when both camera and microphone are unmuted</value>
   </data>
   <data name="ImageResizer_CustomSizes.Text" xml:space="preserve">
     <value>Image sizes</value>

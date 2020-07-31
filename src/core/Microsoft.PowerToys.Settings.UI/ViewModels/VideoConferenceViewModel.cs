@@ -68,6 +68,8 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
             this.SelectOverlayImage = new ButtonClickCommand(SelectOverlayImageAction);
             this.ClearOverlayImage = new ButtonClickCommand(ClearOverlayImageAction);
 
+            this._hideOverlayWhenUnmuted = Settings.Properties.HideOverlayWhenUnmuted.Value;
+
             string overlayPosition = Settings.Properties.OverlayPosition.Value;
 
             switch (overlayPosition)
@@ -115,6 +117,7 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
         private HotkeySettings _mirophoneMuteHotkey;
         private HotkeySettings _cameraMuteHotkey;
         private int _selectedCameraIndex = -1;
+        private bool _hideOverlayWhenUnmuted;
 
         public List<string> CameraNames { get; }
 
@@ -270,27 +273,27 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     _overlayPositionIndex = value;
                     switch (_overlayPositionIndex)
                     {
-                    case 0:
+                        case 0:
                             Settings.Properties.OverlayPosition.Value = "Center";
                             RaisePropertyChanged();
                             break;
 
-                    case 1:
+                        case 1:
                             Settings.Properties.OverlayPosition.Value = "Top left corner";
                             RaisePropertyChanged();
                             break;
 
-                    case 2:
+                        case 2:
                             Settings.Properties.OverlayPosition.Value = "Top right corner";
                             RaisePropertyChanged();
                             break;
 
-                    case 3:
+                        case 3:
                             Settings.Properties.OverlayPosition.Value = "Bottom left corner";
                             RaisePropertyChanged();
                             break;
 
-                    case 4:
+                        case 4:
                             Settings.Properties.OverlayPosition.Value = "Bottom right corner";
                             RaisePropertyChanged();
                             break;
@@ -313,16 +316,34 @@ namespace Microsoft.PowerToys.Settings.UI.ViewModels
                     _overlayMonitorIndex = value;
                     switch (_overlayMonitorIndex)
                     {
-                    case 0:
+                        case 0:
                             Settings.Properties.OverlayMonitor.Value = "Main monitor";
                             RaisePropertyChanged();
                             break;
 
-                    case 1:
+                        case 1:
                             Settings.Properties.OverlayMonitor.Value = "All monitors";
                             RaisePropertyChanged();
                             break;
                     }
+                }
+            }
+        }
+
+        public bool HideOverlayWhenUnmuted
+        {
+            get
+            {
+                return _hideOverlayWhenUnmuted;
+            }
+
+            set
+            {
+                if (value != _hideOverlayWhenUnmuted)
+                {
+                    _hideOverlayWhenUnmuted = value;
+                    Settings.Properties.HideOverlayWhenUnmuted.Value = value;
+                    RaisePropertyChanged();
                 }
             }
         }

@@ -18,6 +18,8 @@ public:
     bool static getMicrophoneMute();
     void static setMicrophoneMute(bool mute);
 
+    void static setHideOverlayWhenUnmuted(bool hide);
+
 private:
     static LRESULT CALLBACK WindowProcessMessages(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
@@ -32,6 +34,8 @@ private:
     static bool valueUpdated;
     static bool cameraMuted;
     static bool microphoneMuted;
+
+    static bool hideOverlayWhenUnmuted;
 
     static unsigned __int64 lastTimeCamOrMicMuteStateChanged;
 

@@ -124,6 +124,12 @@
                 <ComboBoxItem x:Uid="VideoConference_OverlayMonitor_Main"/>
                 <ComboBoxItem x:Uid="VideoConference_OverlayMonitor_All"/>
             </ComboBox>
+
+            <CheckBox x:Uid="VideoConference_HideOverlayWhenUnmuted"
+                      IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.HideOverlayWhenUnmuted}"
+                      Margin="{StaticResource SmallTopMargin}"
+                      IsEnabled="{x:Bind Mode=OneWay, Path=ViewModel.IsEnabled}"
+                      />
         </StackPanel>
         <StackPanel 
             x:Name="SidePanel"
