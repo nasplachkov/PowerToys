@@ -22,7 +22,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
         {
             this.InitializeComponent();
             viewModel = new PowerPreviewViewModel();
-            this.PowerPreviewSettingsView.DataContext = viewModel;
+            this.PowerPreviewView.DataContext = viewModel;
         }
     }
 }

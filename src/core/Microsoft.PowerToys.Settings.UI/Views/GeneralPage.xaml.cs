@@ -33,7 +33,7 @@ namespace Microsoft.PowerToys.Settings.UI.Views
             this.InitializeComponent();
 
             this.ViewModel = new GeneralViewModel();
-            this.GeneralSettingsView.DataContext = this.ViewModel;
+            this.GeneralView.DataContext = this.ViewModel;
         }
     }
 }
