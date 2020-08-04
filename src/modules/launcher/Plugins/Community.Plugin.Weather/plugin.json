@@ -1,0 +1,12 @@
+{
+    "ID": "N7FCHUK9CUNU096QM98S5UFPMTWC0LGF",
+    "ActionKeyword": "*",
+    "Name": "Weather",
+    "Description": "Provide weather info",
+    "Author": "nasplachkov",
+    "Version": "1.0.0",
+    "Language": "csharp",
+    "Website": "",
+    "ExecuteFileName": "Community.Plugin.Weather.dll",
+    "IcoPath": "Images\\weather.png"
+}

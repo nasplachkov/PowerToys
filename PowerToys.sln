@@ -265,6 +265,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "colorpicker", "colorpicker"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bootstrapper", "src\bootstrapper\bootstrapper.vcxproj", "{D194E3AA-F824-4CA9-9A58-034DD6B7D022}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Community.Plugin.Weather", "src\modules\launcher\Plugins\Community.Plugin.Weather\Community.Plugin.Weather.csproj", "{FDD512A8-003F-425C-BC2D-87FC862F1368}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
