@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Community.Plugin.Weather
 {
@@ -22,9 +21,36 @@ namespace Community.Plugin.Weather
         public String icon;
     }
 
-    class WeatherData
+    class WeatherSys
+    {
+        public String country;
+    }
+
+    class WeatherDataNow
     {
         public WeatherDataMain main;
         public List<WeatherType> weather;
+        public String name;
+        public WeatherSys sys;
+    }
+
+    class WeatherDataFiveDayItem
+    {
+        public long dt;
+        public WeatherDataMain main;
+        public List<WeatherType> weather;
+    }
+
+    class WeatherDataFiveDayCity
+    {
+        public String name;
+        public String country;
+    }
+
+    class WeatherDataFiveDay
+    {
+        public int cnt;
+        public List<WeatherDataFiveDayItem> list;
+        public WeatherDataFiveDayCity city;
     }
 }
